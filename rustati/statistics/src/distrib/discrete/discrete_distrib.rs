@@ -5,10 +5,14 @@ pub trait DiscreteDistrib<T=f64>
 where 
     T: Float 
 {
+
+    /// Distribution function
     fn df(&self, x: u64) -> T;
     
+    /// Cumulative distribution function
     fn cdf(&self, x: T) -> T;
     
+    /// Inverse cumulative distribution function
     fn icdf(&self, p: T) -> u64;
 
     fn sample(&self) -> u64 {

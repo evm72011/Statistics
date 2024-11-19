@@ -52,8 +52,8 @@ mod tests {
     fn icdf() {
         //TODO
         let bernoulli = Bernoulli::new(0.2);
-        assert_eq!(bernoulli.cdf(-1.0), 0.0);
-        assert_eq!(bernoulli.cdf(0.5), 0.8);
-        assert_eq!(bernoulli.cdf(2.0), 1.0);
+        assert_eq!(bernoulli.icdf(-1.0), 0.0);
+        assert_eq!(bernoulli.icdf(0.5), 0.8);
+        assert_eq!(bernoulli.icdf(2.0), 1.0);
     }
 }
