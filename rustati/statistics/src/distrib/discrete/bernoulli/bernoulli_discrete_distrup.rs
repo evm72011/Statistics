@@ -23,7 +23,7 @@ impl<T> DiscreteDistrib<T> for Bernoulli<T> where T: Float {
     fn icdf(&self, p: T) -> u64 {
         assert!(p >= T::zero() && p <= T::one(), "Probability must be in [0, 1]");
         match p {
-            p if p < self.p => 0,
+            p if p < T::one() - self.p => 0,
             _ => 1
         }
     }
@@ -52,8 +52,7 @@ mod tests {
     fn icdf() {
         //TODO
         let bernoulli = Bernoulli::new(0.2);
-        assert_eq!(bernoulli.icdf(-1.0), 0.0);
-        assert_eq!(bernoulli.icdf(0.5), 0.8);
-        assert_eq!(bernoulli.icdf(2.0), 1.0);
+        assert_eq!(bernoulli.icdf(0.5), 0u64);
+        assert_eq!(bernoulli.icdf(1.0), 1u64);
     }
 }

@@ -1,7 +1,7 @@
 use statistics::distrib::{Bernoulli, DiscreteDistrib, Distrib}; // Binomial,
 
 fn main() {
-    let bernoulli = Bernoulli::new(0.99);
+    let bernoulli = Bernoulli::new(0.9);
     let samples = bernoulli.samples(10);
     println!("Samples: {:?}", samples);
     println!("Bernoulli mean: {}", bernoulli.mean());
