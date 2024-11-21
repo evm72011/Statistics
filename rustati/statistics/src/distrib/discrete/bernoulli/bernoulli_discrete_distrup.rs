@@ -1,9 +1,12 @@
+use std::fmt::Display;
+
 use num::Float;
 
 use super::Bernoulli;
 use super::super::DiscreteDistrib;
 
-impl<T> DiscreteDistrib<T> for Bernoulli<T> where T: Float {
+impl<T> DiscreteDistrib<T> for Bernoulli<T> where 
+    T: Float + Display {
     fn df(&self, x: u64) -> T {
         match x {
             0 => T::one() - self.p,
@@ -21,7 +24,7 @@ impl<T> DiscreteDistrib<T> for Bernoulli<T> where T: Float {
     }
 
     fn icdf(&self, p: T) -> u64 {
-        assert!(p >= T::zero() && p <= T::one(), "Probability must be in [0, 1]");
+        assert_p!(p);
         match p {
             p if p < T::one() - self.p => 0,
             _ => 1
@@ -50,7 +53,6 @@ mod tests {
 
     #[test]
     fn icdf() {
-        //TODO
         let bernoulli = Bernoulli::new(0.2);
         assert_eq!(bernoulli.icdf(0.5), 0u64);
         assert_eq!(bernoulli.icdf(1.0), 1u64);
