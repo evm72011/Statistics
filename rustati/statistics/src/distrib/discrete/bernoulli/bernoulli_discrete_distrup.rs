@@ -5,7 +5,8 @@ use num::Float;
 use super::Bernoulli;
 use super::super::DiscreteDistrib;
 
-impl<T> DiscreteDistrib<T> for Bernoulli<T> where 
+impl<T> DiscreteDistrib<T> for Bernoulli<T> 
+where 
     T: Float + Display {
     fn df(&self, x: u64) -> T {
         match x {
