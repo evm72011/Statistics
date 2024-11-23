@@ -1,22 +1,30 @@
-use num::{Float, Integer};
+use std::fmt::Display;
+use num::Float;
 
 use crate::utils::binomial_coeff;
 
 use super::Binomial;
 use super::super::DiscreteDistrib;
 
-impl<P,V> DiscreteDistrib<P,V> for Binomial<P,V> 
+impl<T> DiscreteDistrib<T> for Binomial<T> 
 where 
-    P: Float,
-    V: Integer
+    T: Float + Display 
 {
-    fn prob(&self, x: V) -> P {
+    fn df(&self, x: u64) -> T {
         match x {
-            x if x > V::zero() => {
-                let coeff = P::from(binomial_coeff(self.n, x)).unwrap();
-                coeff * self.p.powi(x as i32) * (P::one() - self.p).powi((self.n - x) as i32)
+            x if x > 0 => {
+                let coeff = T::from(binomial_coeff(self.n, x)).unwrap();
+                coeff * self.p.powi(x as i32) * (T::one() - self.p).powi((self.n - x) as i32)
             },
-            _ => P::zero()
+            _ => T::zero()
         }
+    }
+
+    fn cdf(&self, x: T) -> T {
+        panic!("Not implemented")
+    }
+
+    fn icdf(&self, x: T) -> u64 {
+        panic!("Not implemented")
     }
 }

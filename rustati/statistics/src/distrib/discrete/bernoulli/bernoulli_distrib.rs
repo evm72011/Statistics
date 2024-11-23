@@ -8,7 +8,7 @@ impl<T> Distrib<T> for Bernoulli<T> where T: Float {
         self.p
     }
 
-    fn std_dev(&self) -> T {
+    fn variance(&self) -> T {
         self.p * (T::one() - self.p)
     }
 }

@@ -1,5 +1,4 @@
 use std::fmt::Display;
-
 use num::Float;
 
 use super::Bernoulli;
@@ -7,12 +6,13 @@ use super::super::DiscreteDistrib;
 
 impl<T> DiscreteDistrib<T> for Bernoulli<T> 
 where 
-    T: Float + Display {
+    T: Float + Display
+{
     fn df(&self, x: u64) -> T {
         match x {
             0 => T::one() - self.p,
             1 => self.p,
-            _ => panic!("Invalid input: x must be 0 or 1")
+            _ => T::zero()
         }
     }
 

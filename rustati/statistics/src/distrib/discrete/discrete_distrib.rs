@@ -17,7 +17,7 @@ where
 
     fn sample(&self) -> u64 {
         let mut rng = rand::thread_rng();
-        let p = T::from(rng.gen::<f32>()).unwrap();
+        let p = T::from(rng.gen::<f64>()).unwrap();
         self.icdf(p)
     }
 
