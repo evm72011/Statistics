@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.stats import norm
 import matplotlib.pyplot as plt
-#import seaborn as sns;
+import seaborn as sns; sns.set_theme()
 
 n = 1000
 x_mean, x_stddev = 2.0, 0.1
