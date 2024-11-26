@@ -1,9 +1,8 @@
 import random
 from typing import List
 
-
 class SubChapter:
-  def __init__(self, name: str, samples_start: int, samples_end: int, exercises: int, skip = False):
+  def __init__(self, name: str, samples_start: int | None, samples_end: int | None, exercises: int, skip = False):
     self.name = name
     self.samples_start = samples_start
     self.samples_end = samples_end
@@ -71,11 +70,11 @@ book = [
 ]
 
 chapters = list(filter(lambda chapter: not chapter.skip, book))
-chapter = random.choice(chapters)
-print(chapter.name)
+selected_chapter = random.choice(chapters)
+print(selected_chapter.name)
 
-sub_chapters = list(filter(lambda chapter: not chapter.skip, chapter.sub_chapters))
-sub_chapter = random.choice(sub_chapters)
-print(sub_chapter.name)
+sub_chapters = list(filter(lambda chapter: not chapter.skip, selected_chapter.sub_chapters))
+selected_sub_chapter = random.choice(sub_chapters)
+print(selected_sub_chapter.name)
 
-sub_chapter.select_task()
+selected_sub_chapter.select_task()

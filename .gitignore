@@ -1,6 +1,7 @@
 debug/
 target/
 .venv/ 
+.idea
 
 Cargo.lock
 **/*.rs.bk
