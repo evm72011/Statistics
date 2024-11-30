@@ -13,18 +13,18 @@ where
     fn df(&self, x: u64) -> T {
         match x {
             x if x > 0 => {
-                let coeff = T::from(binomial_coeff(self.n, x)).unwrap();
-                coeff * self.p.powi(x as i32) * (T::one() - self.p).powi((self.n - x) as i32)
+                let coefficient = T::from(binomial_coeff(self.n, x)).unwrap();
+                coefficient * self.p.powi(x as i32) * (T::one() - self.p).powi((self.n - x) as i32)
             },
             _ => T::zero()
         }
     }
 
-    fn cdf(&self, x: T) -> T {
+    fn cdf(&self, _: T) -> T {
         panic!("Not implemented")
     }
 
-    fn icdf(&self, x: T) -> u64 {
+    fn icdf(&self, _: T) -> u64 {
         panic!("Not implemented")
     }
 }
