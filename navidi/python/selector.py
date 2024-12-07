@@ -66,6 +66,9 @@ book = [
     SubChapter('4.11 The Central Limit Theorem ', 70, 76, 20),
     SubChapter('4.12 Simulation', 77, 85, 14),
     SubChapter('4. Supplementary Exercises', None, None, 30),
+  ]),
+  Chapter('Confidence Intervals', [
+    SubChapter('5.1 Confidence Intervals for a Population Mean, Variance Known', 1, 10, 18),
   ])
 ]
 
