@@ -29,7 +29,7 @@ class Chapter:
     self.sub_chapters = sub_chapters
     self.skip = skip
 
-book = [
+chapters = [
   Chapter('Sampling and Descriptive Statistics', [
     SubChapter('1.1 Sampling', 1, 8, 9),
     SubChapter('1.2 Summary Statistics', 9, 16, 18),
@@ -69,15 +69,18 @@ book = [
   ]),
   Chapter('Confidence Intervals', [
     SubChapter('5.1 Confidence Intervals for a Population Mean, Variance Known', 1, 10, 18),
+    SubChapter('5.2 Confidence Intervals for a Population Mean, Variance Unknown', 11, 21, 36),
+    SubChapter('5.3 Confidence Intervals for Proportions', 21, 24, 19),
+
   ])
 ]
 
-chapters = list(filter(lambda chapter: not chapter.skip, book))
-selected_chapter = random.choice(chapters)
+actual_chapters = list(filter(lambda chapter: not chapter.skip, chapters))
+selected_chapter = random.choice(actual_chapters)
 print(selected_chapter.name)
 
-sub_chapters = list(filter(lambda chapter: not chapter.skip, selected_chapter.sub_chapters))
-selected_sub_chapter = random.choice(sub_chapters)
+actual_sub_chapters = list(filter(lambda chapter: not chapter.skip, selected_chapter.sub_chapters))
+selected_sub_chapter = random.choice(actual_sub_chapters)
 print(selected_sub_chapter.name)
 
 selected_sub_chapter.select_task()
