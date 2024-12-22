@@ -70,8 +70,9 @@ chapters = [
   Chapter('Confidence Intervals', [
     SubChapter('5.1 Confidence Intervals for a Population Mean, Variance Known', 1, 10, 18),
     SubChapter('5.2 Confidence Intervals for a Population Mean, Variance Unknown', 11, 21, 36),
-    SubChapter('5.3 Confidence Intervals for Proportions', 21, 24, 19),
-
+    SubChapter('5.3 Confidence Intervals for Proportions', 22, 24, 19),
+    SubChapter('5.4 Confidence Intervals for the Difference Between Two Means', 25, 29, 39),
+    SubChapter('5.5 Confidence Intervals for the Difference Between Two Proportions', 25, 29, 39),
   ])
 ]
 
